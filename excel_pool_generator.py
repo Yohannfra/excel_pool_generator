@@ -6,7 +6,7 @@ import sys
 
 
 def generate(fp, names):
-    print(f"Generating poule in {fp} ...")
+    print(f"Generating pool in {fp} ...")
 
     workbook = xlsxwriter.Workbook(fp)
     worksheet = workbook.add_worksheet()
