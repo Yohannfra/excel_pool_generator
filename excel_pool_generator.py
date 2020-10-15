@@ -3,9 +3,12 @@
 
 import xlsxwriter
 import sys
+from typing import List
 
 
-def generate(fp, names):
+def generate_pool(fp: str, names: List[str]):
+    """ Generate the excel pool with the given names """
+
     print(f"Generating pool in {fp} ...")
 
     workbook = xlsxwriter.Workbook(fp)
@@ -29,8 +32,10 @@ def generate(fp, names):
     print("Done !")
 
 
-def get_all_names():
-    names = []
+def get_all_names() -> List[str]:
+    """ get participants names from terminal input """
+
+    names: List[str] = []
     print("\nEnter all participants one by one (press C-D to stop)")
 
     while True:
@@ -51,7 +56,7 @@ def get_all_names():
             sys.exit(1)
 
 
-def main(ac, av):
+def main(ac: int, av: List[str]):
     if ac == 1:
         print(f"USAGE: {sys.argv[0]} file_dest", file=sys.stderr)
         sys.exit(1)
@@ -65,7 +70,7 @@ def main(ac, av):
         print("Bye", file=sys.stderr)
         sys.exit(1)
     names = get_all_names()
-    generate(file_dest, names)
+    generate_pool(file_dest, names)
 
 
 if __name__ == '__main__':
